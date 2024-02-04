@@ -33,12 +33,13 @@ class Program
                 Console.WriteLine("Please enter a valid input");
             }
             string pet_Name = Console.ReadLine();
+
             Console.WriteLine("Welcome " + pet_Name + "!");
 
-            int hunger = 5; // Initial values
+            // Initialise default values
+            int hunger = 5;
             int happiness = 5;
             int health = 5;
-
 
             while (true)
             {
@@ -51,26 +52,37 @@ class Program
 
                 int choice = Convert.ToInt32(Console.ReadLine());
 
+                // Display critical status messages
+                if (hunger <= 3)
+                {
+                    Console.WriteLine($"Critical Warning: {pet_Name} is Hungry");
+                }
+                if (happiness <= 3)
+                {
+                    Console.WriteLine($"Critical Warning: {pet_Name} is sad");
+                }
+                if (health <= 3)
+                {
+                    Console.WriteLine($"Critical Warning: {pet_Name} Health is critically low");
+                }
+
                 switch (choice)
                 {
                     case 1:
-                        Console.WriteLine("Feeding " + pet_Name);
-                        // Decrease hunger, but not below 1
-                        hunger = hunger - 2;
-                        if (hunger < 1)
+                        Console.WriteLine($"Feeding {pet_Name}");
+                        hunger += 2;
+                        if (hunger > 10)
                         {
-                            hunger = 1;
+                            hunger = 10;
                         }
 
-                        // Increase happiness, but not above 10
-                        happiness = happiness + 1;
+                        happiness += 1;
                         if (happiness > 10)
                         {
                             happiness = 10;
                         }
 
-                        // Increase health, but not above 10
-                        health = health + 1;
+                        health += 1;
                         if (health > 10)
                         {
                             health = 10;
@@ -78,16 +90,19 @@ class Program
                         break;
 
                     case 2:
-                        Console.WriteLine("Playing with " + pet_Name);
-                        // Increase happiness, but not above 10
-                        happiness = happiness + 2;
+                        Console.WriteLine($"Playing with {pet_Name}");
+                        happiness += 2;
+                        hunger -= 1;
+                        if (hunger > 10)
+                        {
+                            hunger = 10;
+                        }
                         if (happiness > 10)
                         {
                             happiness = 10;
                         }
 
-                        // Decrease health, but not below 1
-                        health = health - 1;
+                        health -= 1;
                         if (health < 1)
                         {
                             health = 1;
@@ -95,16 +110,14 @@ class Program
                         break;
 
                     case 3:
-                        Console.WriteLine("Letting " + pet_Name + " rest");
-                        // Increase health, but not above 10
-                        health = health + 2;
+                        Console.WriteLine($"Letting {pet_Name} rest");
+                        health += 2;
                         if (health > 10)
                         {
                             health = 10;
                         }
 
-                        // Decrease happiness, but not below 1
-                        happiness = happiness - 1;
+                        happiness -= 1;
                         if (happiness < 1)
                         {
                             happiness = 1;
@@ -112,25 +125,28 @@ class Program
                         break;
 
                     case 4:
-                        Console.WriteLine("Checking " + pet_Name + " status");
-                        Console.WriteLine("Hunger: " + hunger);
-                        Console.WriteLine("Happiness: " + happiness);
-                        Console.WriteLine("Health: " + health);
+                        Console.WriteLine($"Checking {pet_Name} status");
+                        Console.WriteLine($"Hunger: {hunger}");
+                        Console.WriteLine($"Happiness: {happiness}");
+                        Console.WriteLine($"Health: {health}");
                         break;
+
+                        
 
                     case 5:
                         Console.WriteLine("Exiting the program");
-                        Environment.Exit(0);
-                        break;
+                        return;
 
                     default:
                         Console.WriteLine("Invalid choice");
                         break;
+
+
                 }
 
 
 
-                
+
             }
         }
     }
