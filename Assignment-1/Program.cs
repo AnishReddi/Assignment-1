@@ -32,8 +32,22 @@ class Program
             {
                 Console.WriteLine("Please enter a valid input");
             }
+            string pet_Name = Console.ReadLine();
+            Console.WriteLine("Welcome " + pet_Name + "!");
+
+            while (true)
+            {
+                Console.WriteLine("\nMain Menu:");
+                Console.WriteLine("1. Feed " + pet_Name);
+                Console.WriteLine("2. Play with " + pet_Name);
+                Console.WriteLine("3. Let " + pet_Name + " rest");
+                Console.WriteLine("4. Check " + pet_Name + " status");
+                Console.WriteLine("5. Exit");
+
+                int choice = Convert.ToInt32(Console.ReadLine());
+
+            }
         }
-    }
 }
     
 
