@@ -25,7 +25,7 @@ class Program
         else
         {
             Console.WriteLine("Please enter a valid input");
-            return;
+           
         }
 
         string pet_Name = Console.ReadLine();
