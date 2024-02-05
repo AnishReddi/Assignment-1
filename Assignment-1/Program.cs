@@ -12,23 +12,28 @@ class Program
 
         if (pet_Type == 1)
         {
+            Console.WriteLine(" ");
             Console.WriteLine("You've chosen Dog, what would you like to name your pet");
         }
         else if (pet_Type == 2)
         {
+            Console.WriteLine(" ");
             Console.WriteLine("You've chosen Cat, what would you like to name your pet: ");
         }
         else if (pet_Type == 3)
         {
+            Console.WriteLine(" ");
             Console.WriteLine("You've chosen Bird, what would you like to name your pet: ");
         }
         else
         {
+            Console.WriteLine(" ");
             Console.WriteLine("Please enter a valid input");
-           
+                       
         }
 
         string pet_Name = Console.ReadLine();
+        Console.WriteLine(" ");
         Console.WriteLine($"Welcome {pet_Name}!");
 
         // Initialise default values
@@ -50,6 +55,7 @@ class Program
             switch (choice)
             {
                 case 1:
+                    Console.WriteLine(" ");
                     Console.WriteLine($"Feeding {pet_Name}. {pet_Name}'s Happy and healthy!");
                     hunger -= 2;                   
                     if (hunger < 1) hunger = 1;
@@ -73,10 +79,12 @@ class Program
 
                     if (hunger >= 7 || health <= 3 )
                     {
+                        Console.WriteLine(" ");
                         Console.WriteLine($"Critical Warning: {pet_Name} is Hungry and health is depleting. Feed {pet_Name} and let {pet_Name} rest.");
                     }
                     else 
                     {
+                        Console.WriteLine(" ");
                         Console.WriteLine($"Playing with {pet_Name}. happiness increases, and hunger too!");
                     }
 
@@ -94,17 +102,20 @@ class Program
 
                     if (happiness <= 3 || hunger >= 7)
                     {
+                        Console.WriteLine(" ");
 
                         Console.WriteLine($"Critical Warning: {pet_Name} is sad and hungry. Feed {pet_Name}");
                     }
                     else
                     {
+                        Console.WriteLine(" ");
                         Console.WriteLine($"Letting {pet_Name} rest. Recharging health!");
                     }
 
                     break;
 
                 case 4:
+                    Console.WriteLine(" ");
                     Console.WriteLine($"Checking {pet_Name} status");
                     Console.WriteLine($"Hunger: {hunger}");
                     Console.WriteLine($"Happiness: {happiness}");
@@ -112,10 +123,12 @@ class Program
                     break;
 
                 case 5:
+                    Console.WriteLine(" ");
                     Console.WriteLine($"Thank you for playing with {pet_Name} ");
                     return;
 
                 default:
+                    Console.WriteLine(" ");
                     Console.WriteLine("Invalid choice");
                     break;
             }
