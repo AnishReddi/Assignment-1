@@ -29,7 +29,7 @@ class Program
         }
 
         string pet_Name = Console.ReadLine();
-        Console.WriteLine("Welcome " + pet_Name + "!");
+        Console.WriteLine($"Welcome {pet_Name}!");
 
         // Initialise default values
         int hunger = 5;
