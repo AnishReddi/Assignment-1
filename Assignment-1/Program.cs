@@ -45,28 +45,13 @@ class Program
             Console.WriteLine("4. Check " + pet_Name + " status");
             Console.WriteLine("5. Exit");
 
-            int choice = Convert.ToInt32(Console.ReadLine());
-
-            // Display critical status messages
-            if (hunger >= 7)
-            {
-                Console.WriteLine($"Critical Warning: {pet_Name} is Hungry");
-            }
-            if (happiness <= 3)
-            {
-                Console.WriteLine($"Critical Warning: {pet_Name} is sad");
-            }
-            if (health <= 3)
-            {
-                Console.WriteLine($"Critical Warning: {pet_Name} Health is critically low");
-            }
+            int choice = Convert.ToInt32(Console.ReadLine());          
 
             switch (choice)
             {
                 case 1:
-                    Console.WriteLine($"Feeding {pet_Name}");
-                    hunger -= 2;
-                    if (hunger > 10) hunger = 10;
+                    Console.WriteLine($"Feeding {pet_Name}. {pet_Name}'s Happy and healthy!");
+                    hunger -= 2;                   
                     if (hunger < 1) hunger = 1;
 
                     happiness += 1;
@@ -74,26 +59,49 @@ class Program
 
                     health += 1;
                     if (health > 10) health = 10;
+
                     break;
 
-                case 2:
-                    Console.WriteLine($"Playing with {pet_Name}");
+                case 2:                    
                     happiness += 2;
-                    hunger -= 1;
-                    if (hunger > 10) hunger = 10;
+                    hunger += 1;
+                    if (hunger > 10) hunger = 10;                 
                     if (happiness > 10) happiness = 10;
 
                     health -= 1;
                     if (health < 1) health = 1;
+
+                    if (hunger >= 7 || health <= 3 )
+                    {
+                        Console.WriteLine($"Critical Warning: {pet_Name} is Hungry and health is depleting");
+                    }
+                    else 
+                    {
+                        Console.WriteLine($"Playing with {pet_Name}. happiness increases, and hunger too!");
+                    }
+
                     break;
 
-                case 3:
-                    Console.WriteLine($"Letting {pet_Name} rest");
+                case 3:                   
                     health += 2;
                     if (health > 10) health = 10;
 
-                    happiness += 1;
-                    if (happiness > 10) happiness = 10;
+                    happiness -= 1;                    
+                    if (happiness < 1) happiness = 1;
+
+                    hunger += 1;
+                    if (hunger > 10) hunger = 10;
+
+                    if (happiness <= 3 || hunger >= 7)
+                    {
+
+                        Console.WriteLine($"Critical Warning: {pet_Name} is sad and hungry. Feed {pet_Name}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Letting {pet_Name} rest. Recharging health!");
+                    }
+
                     break;
 
                 case 4:
@@ -104,7 +112,7 @@ class Program
                     break;
 
                 case 5:
-                    Console.WriteLine("Exiting the program");
+                    Console.WriteLine($"Thank you for playing with {pet_Name} ");
                     return;
 
                 default:
