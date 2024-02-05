@@ -73,7 +73,7 @@ class Program
 
                     if (hunger >= 7 || health <= 3 )
                     {
-                        Console.WriteLine($"Critical Warning: {pet_Name} is Hungry and health is depleting");
+                        Console.WriteLine($"Critical Warning: {pet_Name} is Hungry and health is depleting. Feed {pet_Name} and let {pet_Name} rest.");
                     }
                     else 
                     {
