@@ -129,7 +129,7 @@ class Program
 
                 default:
                     Console.WriteLine(" ");
-                    Console.WriteLine("Invalid choice");
+                    Console.WriteLine("please enter a valid choice");
                     break;
             }
         }
